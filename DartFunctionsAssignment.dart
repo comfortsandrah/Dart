@@ -1,4 +1,4 @@
-  // a function called addTwo that takes two numbers as arguments and returns the sum of those two numbers.
+// a function called addTwo that takes two numbers as arguments and returns the sum of those two numbers.
 double addTwo(double x, double y) => x + y;
 // a function called subtractTwo that takes two numbers as arguments and returns the difference of those two numbers.
 double subtractTwo(double x, double y) => x - y;
