@@ -45,13 +45,13 @@ class Book extends LibraryItem implements Loanable {
   @override
   void returnItem() {
     _isAvailable = true;
-    print("Book returned: $title");
+    print("Book returned: $title.");
   }
 
   // Overriding displayItem method
   @override
   void displayItems() {
-    print("Book: $title by $author, Published: $publicationYear, Pages: $pageCount");
+    print("Book: $title by $author, Published: $publicationYear, Pages: $pageCount.");
   }
 }
 
