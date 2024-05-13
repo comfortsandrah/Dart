@@ -1,3 +1,4 @@
+import 'dart:io';
 abstract class LibraryItem {
   // Attributes common to all library items
   String title;
@@ -10,6 +11,7 @@ abstract class LibraryItem {
   // Method to diplay item details
   void displayItems();
 }
+//  A class that implements an interface
 
 abstract class Loanable {
   bool isAvailable();
@@ -51,13 +53,25 @@ class Book extends LibraryItem implements Loanable {
   // Overriding displayItem method
   @override
   void displayItems() {
-    print("Book: $title by $author, Published: $publicationYear, Pages: $pageCount.");
+    print(
+        "Book: $title by $author, Published: $publicationYear, Pages: $pageCount.");
   }
 }
 
 void main() {
+  // Read book data from a file
+  String bookDataFilePath = 'book_data.txt';
+  List<String> bookData = File(bookDataFilePath).readAsLinesSync();
+
+  // Extract book data from the file
+  String title = bookData[0];
+  String author = bookData[1];
+  int publicationYear = int.parse(bookData[2]);
+  int pageCount = int.parse(bookData[3]);
+  // Create an instance of the Book class and initialize it with the data
+  Book myBook = Book(title, author, publicationYear, pageCount);
   // creating a book
-  Book myBook = Book("Good Morning, Holy Spirit", "Benny Hinn", 1991, 192);
+  // Book myBook = Book("Good Morning, Holy Spirit", "Benny Hinn", 1991, 192);
   myBook.displayItems();
   // Checkout and returning book
   myBook.checkout();
